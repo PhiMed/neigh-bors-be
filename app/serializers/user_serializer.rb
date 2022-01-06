@@ -1,7 +1,5 @@
 class UserSerializer
   include JSONAPI::Serializer
-  attributes :name, :user_type, :email, :phone, :address,
-             :number_of_animals, :special_needs?,
-             :special_needs_details, :trailer_capacity,
-             :available?
+  attributes :name, :email, :phone, :is_available_for_missions?,
+             :rescuer_trailer_capacity
 end

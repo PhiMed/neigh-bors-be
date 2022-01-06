@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 2022_01_06_000920) do
     t.string "name"
     t.string "email"
     t.string "phone"
-    t.integer "user_type"
     t.boolean "is_available_for_missions?"
     t.integer "rescuer_trailer_capacity"
   end

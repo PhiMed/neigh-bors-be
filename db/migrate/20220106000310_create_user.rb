@@ -4,7 +4,6 @@ class CreateUser < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :email
       t.string :phone
-      t.integer :user_type
       t.boolean :is_available_for_missions?
       t.integer :rescuer_trailer_capacity
     end
