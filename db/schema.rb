@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(version: 2022_01_06_000920) do
   create_table "farms", force: :cascade do |t|
     t.string "name"
     t.string "address"
+    t.integer "number_of_animals"
+    t.boolean "special_needs?"
+    t.string "special_needs_details"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_farms_on_user_id"
   end
@@ -33,6 +36,9 @@ ActiveRecord::Schema.define(version: 2022_01_06_000920) do
     t.string "name"
     t.string "email"
     t.string "phone"
+    t.integer "user_type"
+    t.boolean "is_available_for_missions?"
+    t.integer "rescuer_trailer_capacity"
   end
 
   add_foreign_key "farms", "users"

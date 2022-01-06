@@ -3,12 +3,9 @@ FactoryBot.define do
     name { Faker::Name.first_name }
     name { Faker::Name.name }
     email { Faker::Internet.email }
-    t.string :email
-    t.string :phone
-    t.integer :user_type
-    t.boolean :is_available_for_missions?
-    t.integer :rescuer_trailer_capacity
-
+    phone  { Faker::Number.number(digits: 10) }
+    is_available_for_missions?{ Faker::Boolean.boolean }
+    rescuer_trailer_capacity { Faker::Number.number(digits: 10) }
   end
 
 end
