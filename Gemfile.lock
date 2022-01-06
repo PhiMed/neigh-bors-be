@@ -193,7 +193,7 @@ GEM
 PLATFORMS
   arm64-darwin-20
 
-  bundle lock --add-platform x86_64-linux
+  --add-platform x86_64-linux
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
