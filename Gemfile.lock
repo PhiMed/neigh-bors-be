@@ -193,8 +193,6 @@ GEM
 PLATFORMS
   arm64-darwin-20
 
-  --add-platform x86_64-linux
-
 DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
@@ -220,3 +218,5 @@ RUBY VERSION
 
 BUNDLED WITH
    2.2.30
+
+bundle lock --add-platform x86_64-linux
