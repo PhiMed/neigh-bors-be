@@ -25,4 +25,5 @@
 # Ignore API Keys/Passwords
 /config/application.yml
 
+# Ignore simplcov
 /coverage
