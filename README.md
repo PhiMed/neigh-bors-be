@@ -1,24 +1,21 @@
-# README
+# Neigh-bors
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Project Description
+The Neigh-bors application is designed to connect farms with volunteer rescuers to evacuate horses during natural disaster events. The app includes both a backend repo (this repo) and a frontend repo (found here: [Neigh-bors Frontend Repo](https://github.com/chloell5/neigh-bors-fe). The backend of this app has been deployed to Heroku at [Neigh-bors](https://neigh-bors-be.herokuapp.com/api/v1/).
 
-Things you may want to cover:
+## Shipping Changes
+If you would like to make changes to this project, please contact the owner of this repository via GitHub.
 
-* Ruby version
+## Setup
+This project was developed via Ruby 2.7.2, on Rails 5.2.6. It incorporates Circle CI.
 
-* System dependencies
+To access the dev environment for this app please follow these steps:
+* Fork this repository
+* Clone your fork
+* From the command line, install gems and set up your DB:
+  * `bundle`
 
-* Configuration
+You can access the test suite (includes use of Capybara, FactoryBot, Faker, RSpec, Shouldamatchers, and Pry) via `bundle exec rspec`. You can run the development server with `rails s` to see the app in action.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Contributors
+This project was developed via Ruby on Rails by Philip Medlin, Chloe Price, Luis Arroyo, Lesley Sanders, and Didi Dodson at Turing School of Software and Design in 2022.
