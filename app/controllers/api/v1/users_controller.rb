@@ -2,7 +2,7 @@ class Api::V1::UsersController < ApplicationController
   def index
     if params[:email].present?
       if User.where(email: "#{params[:email]}").any?
-        render json: UserSerializer.new(User.where(email: "#{params[:email]}"))
+        render json: UserSerializer.new(User.where(email: "#{params[:email]}").first)
       else
         render json: {errors: {details: "Not Found"}}, status: 404
       end
