@@ -24,3 +24,5 @@
 
 # Ignore API Keys/Passwords
 /config/application.yml
+
+/coverage
