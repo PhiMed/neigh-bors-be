@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Farm API' do
-  it 'can find all farms' do
+  it 'can get all farms' do
     farm_1 = create(:farm)
     farm_2 = create(:farm)
     farm_3 = create(:farm)
@@ -113,7 +113,7 @@ describe 'Farm API' do
 
     patch "/api/v1/farms/#{farm_1.id}", headers: header, params: JSON.generate(farm_params)
 
-    Farm.find_by(id: farm_1)
+    Farm.find_by(id: farm_1.id)
 
     expect(response.status).to eq(400)
   end

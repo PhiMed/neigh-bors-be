@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Mission API' do
-  it 'can find all farms' do
+  it 'can get all missions' do
     farm_1 = create(:farm)
     user_1 = create(:user)
     mission_1 = create(:mission, user_id: user_1.id, farm_id: farm_1.id)
@@ -61,10 +61,11 @@ describe 'Mission API' do
 
   xit 'sends an error code if mission is not created' do
     user_1 = create(:user)
+    user_2 = create(:user)
     farm_1 = create(:farm)
     mission_1 = create(:mission, user_id: user_1.id, farm_id: farm_1.id)
 
-    post "/api/v1/missions?user_id=100"
+    post "/api/v1/missions?user_id=#{user_2.id}"
 
     expect(response.status).to eq(400)
   end
