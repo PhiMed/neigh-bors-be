@@ -44,12 +44,6 @@ describe 'Users API' do
 
     expect(user[:attributes][:email]).to eq("#{user_2.email}")
 
-    get "/api/v1/users/?email=bad_email@gmail.com"
-
-    user = (JSON.parse(response.body, symbolize_names: true))
-
-    expect(user[:errors][:details]).to eq("Not Found")
-  end
 
   it 'sends an error code if user does not exist' do
     user_1 = create(:user)
@@ -118,4 +112,5 @@ describe 'Users API' do
 
     expect(User.count).to eq(1)
   end
+
 end

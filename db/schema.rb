@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2022_01_06_000920) do
     t.string "phone"
     t.boolean "is_available_for_missions?", default: false
     t.integer "rescuer_trailer_capacity", default: 0
+    t.string "address"
   end
 
   add_foreign_key "farms", "users"
