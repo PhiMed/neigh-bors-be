@@ -43,14 +43,17 @@ describe 'Users API' do
     expect(response).to be_successful
 
     expect(user[:attributes][:email]).to eq("#{user_2.email}")
+    expect(user[:attributes][:email]).to_not eq("#{user_1.email}")
+
   end
 
   it 'sends an error code if user does not exist' do
-    user_1 = create(:user)
-
     get "/api/v1/users/1000"
 
+    error = (JSON.parse(response.body, symbolize_names: true))[:errors][:details]
+
     expect(response.status).to eq(404)
+    expect(error).to eq("Not Found")
   end
 
   it 'can create a new user' do
@@ -58,17 +61,21 @@ describe 'Users API' do
 
     post "/api/v1/users?id=#{user_1.id}"
 
+    get "/api/v1/users?id=#{user_1.id}"
+
     user = (JSON.parse(response.body, symbolize_names: true))[:data]
 
     expect(response).to be_successful
+    expect(user.first[:id].to_i).to eq(user_1.id)
   end
 
   it 'sends an error code if user is not created' do
-    user_1 = create(:user)
-
     post "/api/v1/users?user_id=1000"
 
+    error = (JSON.parse(response.body, symbolize_names: true))[:errors][:details]
+
     expect(response.status).to eq(400)
+    expect(error).to eq("There was an error completing this request")
   end
 
   it 'can update a user' do
