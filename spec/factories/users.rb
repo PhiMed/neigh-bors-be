@@ -5,6 +5,7 @@ FactoryBot.define do
     phone  { Faker::PhoneNumber.phone_number }
     is_available_for_missions?{ Faker::Boolean.boolean }
     rescuer_trailer_capacity { Faker::Number.number(digits: 1) }
+    address { Faker::Address.full_address }
   end
 
 end
