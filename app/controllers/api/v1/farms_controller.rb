@@ -5,7 +5,7 @@ class Api::V1::FarmsController < ApplicationController
 
   def show
     if Farm.exists?(params[:id])
-      render json: FarmSerializer.new(Farm.find(params[:user_id]))
+      render json: FarmSerializer.new(Farm.find(params[:id]))
     else
       render json: {errors: {details: "Not Found"}}, status: 404
     end
@@ -13,6 +13,7 @@ class Api::V1::FarmsController < ApplicationController
 
   def create
     farm = Farm.create(farm_params)
+
     if farm.save
       render json: FarmSerializer.new(Farm.find(farm.id)), status: 201
     else

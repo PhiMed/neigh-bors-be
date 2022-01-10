@@ -59,7 +59,7 @@ describe 'Mission API' do
     expect(mission[:attributes][:user_id]).to eq(user_1.id)
   end
 
-  xit 'sends an error code if mission is not created' do
+  it 'sends an error code if mission is not created' do
     user_1 = create(:user)
     user_2 = create(:user)
     farm_1 = create(:farm)

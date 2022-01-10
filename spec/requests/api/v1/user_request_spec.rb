@@ -44,6 +44,7 @@ describe 'Users API' do
 
     expect(user[:attributes][:email]).to eq("#{user_2.email}")
     expect(user[:attributes][:email]).to_not eq("#{user_1.email}")
+
   end
 
   it 'sends an error code if user does not exist' do
