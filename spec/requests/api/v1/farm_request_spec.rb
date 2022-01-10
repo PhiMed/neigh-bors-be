@@ -43,11 +43,14 @@ describe 'Farm API' do
   it 'can create a new farm' do
     user_id = create(:user).id
 
+    farm = create(:farm, name: "Hillside Farms", address: "123 Farm Blvd", user_id: user_id)
+
     post "/api/v1/farms?user_id=#{user_id}"
+    get "/api/v1/farms?user_id=#{user_id}"
 
     farm = (JSON.parse(response.body, symbolize_names: true))[:data]
 
-    expect(farm[:attributes][:user_id]).to eq(user_id)
+    expect(farm.first[:attributes][:user_id]).to eq(user_id)
   end
 
   it 'sends an error code if farm is not created' do
@@ -90,7 +93,7 @@ describe 'Farm API' do
     expect(farm.address).to_not eq(address)
   end
 
-  xit 'sends an error code if a farm is not updated' do
+  it 'sends an error code if a farm is not updated' do
     user_1 = create(:user)
     farm_1 = create(:farm, user: user_1)
     name = Farm.first.name

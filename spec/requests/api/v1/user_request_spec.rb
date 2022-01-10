@@ -43,7 +43,7 @@ describe 'Users API' do
     expect(response).to be_successful
 
     expect(user[:attributes][:email]).to eq("#{user_2.email}")
-
+  end
 
   it 'sends an error code if user does not exist' do
     user_1 = create(:user)
@@ -63,7 +63,7 @@ describe 'Users API' do
     expect(response).to be_successful
   end
 
-  xit 'sends an error code if user is not created' do
+  it 'sends an error code if user is not created' do
     user_1 = create(:user)
 
     post "/api/v1/users?user_id=1000"
