@@ -57,16 +57,18 @@ describe 'Users API' do
   end
 
   it 'can create a new user' do
-    user_1 = create(:user)
 
-    post "/api/v1/users?id=#{user_1.id}"
+    user = User.new(id: 8, name: 'bob', email: 'cats@cats.com', phone: '123-2345', rescuer_trailer_capacity: 10, address: '123 street')
 
-    get "/api/v1/users?id=#{user_1.id}"
+    post "/api/v1/users?id=#{user.id}&name=#{user.name}&email=#{user.email}&phone=#{user.phone}&rescuer_trailer_capacity=#{user.rescuer_trailer_capacity}&address=#{user.address}"
+
+    expect(response.status).to eq(201)
+
+    get "/api/v1/users?id=#{user.id}"
 
     user = (JSON.parse(response.body, symbolize_names: true))[:data]
 
     expect(response).to be_successful
-    expect(user.first[:id].to_i).to eq(user_1.id)
   end
 
   it 'sends an error code if user is not created' do
@@ -105,6 +107,24 @@ describe 'Users API' do
     expect(user.name).to_not eq(name)
     expect(user.email).to eq(user_params[:email])
     expect(user.email).to_not eq(email)
+  end
+
+  it 'sends an error code if a user is not updated' do
+    user_1 = create(:user)
+
+    user_params = {
+                    name: "Bob",
+                    email: "",
+                    phone: "555-444-3333",
+                    is_available_for_missions?: true,
+                    rescuer_trailer_capacity: 20,
+                  }
+
+    header = {"CONTENT_TYPE" => "application/json"}
+
+    patch "/api/v1/users/#{user_1.id}", headers: header, params: JSON.generate(user_params)
+
+    expect(response.status).to eq(400)
   end
 
   it 'can delete a user' do

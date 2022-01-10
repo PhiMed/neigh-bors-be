@@ -45,7 +45,10 @@ describe 'Farm API' do
 
     farm = create(:farm, name: "Hillside Farms", address: "123 Farm Blvd", user_id: user_id)
 
-    post "/api/v1/farms?user_id=#{user_id}"
+    post "/api/v1/farms?user_id=#{user_id}&name=#{farm.name}&address=#{farm.address}"
+
+    expect(response.status).to eq(201)
+
     get "/api/v1/farms?user_id=#{user_id}"
 
     farm = (JSON.parse(response.body, symbolize_names: true))[:data]

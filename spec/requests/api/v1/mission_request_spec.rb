@@ -52,7 +52,9 @@ describe 'Mission API' do
     farm_1 = create(:farm)
     mission_1 = create(:mission, user_id: user_1.id, farm_id: farm_1.id)
 
-    post "/api/v1/missions?user_id=#{user_1.id}"
+    post "/api/v1/missions?user_id=#{user_1.id}&farm_id=#{farm_1.id}"
+
+    expect(response.status).to eq(201)
 
     get "/api/v1/missions?user_id=#{user_1.id}"
 
@@ -97,6 +99,25 @@ describe 'Mission API' do
     expect(mission.user_id).to_not eq(user_id)
     expect(mission.farm_id).to eq(mission_params[:farm_id])
     expect(mission.farm_id).to_not eq(farm_id)
+  end
+
+  it 'sends an error code if a mission is not updated' do
+    user_1 = create(:user)
+    farm_1 = create(:farm, user: user_1)
+    mission_1 = create(:mission, user_id: user_1.id, farm_id: farm_1.id)
+
+    mission_params = {
+                    farm_id: farm_1.id,
+                    user_id: ""
+                  }
+
+    header = {"CONTENT_TYPE" => "application/json"}
+
+    patch "/api/v1/missions/#{mission_1.id}", headers: header, params: JSON.generate(mission_params)
+
+    Farm.find_by(id: farm_1.id)
+
+    expect(response.status).to eq(400)
   end
 
   it 'can delete a mission' do
