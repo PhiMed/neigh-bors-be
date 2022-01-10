@@ -54,9 +54,11 @@ describe 'Mission API' do
 
     post "/api/v1/missions?user_id=#{user_1.id}"
 
+    get "/api/v1/missions?user_id=#{user_1.id}"
+
     mission = (JSON.parse(response.body, symbolize_names: true))[:data]
 
-    expect(mission[:attributes][:user_id]).to eq(user_1.id)
+    expect(mission.first[:attributes][:user_id]).to eq(user_1.id)
   end
 
   it 'sends an error code if mission is not created' do
