@@ -3,8 +3,6 @@ class Api::V1::UsersController < ApplicationController
     if params[:email].present?
       if User.where(email: "#{params[:email]}").any?
         render json: UserSerializer.new(User.where(email: "#{params[:email]}").first)
-      else
-        render json: {errors: {details: "Not Found"}}, status: 404
       end
     else
       render json: UserSerializer.new(User.all)
@@ -21,6 +19,7 @@ class Api::V1::UsersController < ApplicationController
 
   def create
     user = User.create(user_params)
+
     if user.save
       render json: UserSerializer.new(User.find(user.id)), status: 201
     else
@@ -44,7 +43,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:name, :email, :phone, :is_available_for_missions?,
+    params.permit(:id, :address, :name, :email, :phone, :is_available_for_missions?,
                :rescuer_trailer_capacity)
   end
 end
