@@ -23,4 +23,3 @@ mission_2 = Mission.create!(user_id: user_2.id, farm_id: user_3.id)
 mission_3 = Mission.create!(user_id: user_3.id, farm_id: user_4.id)
 mission_4 = Mission.create!(user_id: user_4.id, farm_id: user_5.id)
 mission_5 = Mission.create!(user_id: user_5.id, farm_id: user_1.id)
-

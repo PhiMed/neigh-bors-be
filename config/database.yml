@@ -13,6 +13,9 @@
 #
 # Configure Using Gemfile
 # gem 'pg'
+
+# host: localhost
+# port: 5432
 #
 default: &default
   adapter: postgresql
