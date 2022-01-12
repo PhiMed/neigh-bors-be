@@ -21,13 +21,14 @@ describe 'Farm API' do
   end
 
   it "can get one farm by its id" do
-    id = create(:farm).id
+    user = create(:user)
+    farm = create(:farm, user_id: user.id)
 
-    get "/api/v1/farms/#{id}"
-
-    farm = (JSON.parse(response.body, symbolize_names: true))[:data]
+    get "/api/v1/farms/#{farm.id}"
 
     expect(response).to be_successful
+
+    farm = JSON.parse(response.body, symbolize_names: true)[:data]
 
     expect(farm[:attributes][:name]).to be_a(String)
   end

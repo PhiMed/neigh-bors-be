@@ -107,15 +107,13 @@ describe 'Mission API' do
     mission_1 = create(:mission, user_id: user_1.id, farm_id: farm_1.id)
 
     mission_params = {
-                    farm_id: farm_1.id,
-                    user_id: ""
+                    farm_id: "",
+                    user_id: user_1.id
                   }
 
     header = {"CONTENT_TYPE" => "application/json"}
 
     patch "/api/v1/missions/#{mission_1.id}", headers: header, params: JSON.generate(mission_params)
-
-    Farm.find_by(id: farm_1.id)
 
     expect(response.status).to eq(400)
   end

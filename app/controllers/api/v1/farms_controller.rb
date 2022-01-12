@@ -12,8 +12,7 @@ class Api::V1::FarmsController < ApplicationController
   end
 
   def show
-    if
-      Farm.exists?(params[:id])
+    if Farm.exists?(params[:id])
       render json: FarmSerializer.new(Farm.find(params[:id]))
     else
       render json: {errors: {details: "Not Found"}}, status: 404
