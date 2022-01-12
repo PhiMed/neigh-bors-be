@@ -4,8 +4,10 @@ class Api::V1::FarmsController < ApplicationController
       if Farm.where(user_id: "#{params[:user_id]}").any?
         render json: FarmSerializer.new(Farm.where(user_id: "#{params[:user_id]}").first)
       else
-        render json: {errors: {details: "Not Found"}}, status: 404
+        render json: FarmSerializer.new(Farm.all)
       end
+    else
+      render json: FarmSerializer.new(Farm.all)
     end
   end
 
