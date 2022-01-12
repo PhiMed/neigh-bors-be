@@ -18,8 +18,8 @@ farm_3 = Farm.create!(name: "Didi's Horse Retreat", address: "111 Madison Street
 farm_4 = Farm.create!(name: "Philip's Fillies", address: "330 Montgomery Street Jersey City, NJ 07302", number_of_animals: 10, special_needs?: false, special_needs_details: "None", user_id: user_4.id)
 farm_5 = Farm.create!(name: "Chloe's Majestic Mustangs", address: "100 14th Street Jersey City, NJ 07310", number_of_animals: 10, special_needs?: false, special_needs_details: "None", user_id: user_5.id)
 
-mission_1 = Mission.create!(user_id: user_1.id, farm_id: user_2.id)
-mission_2 = Mission.create!(user_id: user_2.id, farm_id: user_3.id)
+mission_1 = Mission.create!(farm_id: user_2.id)
+mission_2 = Mission.create!(farm_id: user_3.id)
 mission_3 = Mission.create!(user_id: user_3.id, farm_id: user_4.id)
 mission_4 = Mission.create!(user_id: user_4.id, farm_id: user_5.id)
 mission_5 = Mission.create!(user_id: user_5.id, farm_id: user_1.id)
