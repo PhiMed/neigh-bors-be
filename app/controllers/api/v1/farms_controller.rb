@@ -1,17 +1,10 @@
 class Api::V1::FarmsController < ApplicationController
   def index
-    if params[:user_id].present?
-      if Farm.where(user_id: "#{params[:user_id]}").any?
-        render json: FarmSerializer.new(Farm.where(user_id: "#{params[:user_id]}").first)
-      else
-        render json: {errors: {details: "Not Found"}}, status: 404
-      end
-    end
+    render json: FarmSerializer.new(Farm.all)
   end
 
   def show
-    if
-      Farm.exists?(params[:id])
+    if Farm.exists?(params[:id])
       render json: FarmSerializer.new(Farm.find(params[:id]))
     else
       render json: {errors: {details: "Not Found"}}, status: 404
