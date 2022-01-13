@@ -10,6 +10,7 @@ user_2 = User.create!(name: "Lesley Sanders", email: "lgsriclas@gmail.com", phon
 user_3 = User.create!(name: "Didi", email: "mdodson55@gmail.com", phone: "555-555-5555", is_available_for_missions?: true, rescuer_trailer_capacity: 10, address: "111 Madison Street Hoboken, NJ 07030")
 user_4 = User.create!(name: "Philip", email: "phmedlin@gmail.com", phone: "444-444-4444", is_available_for_missions?: true, rescuer_trailer_capacity: 10, address: "330 Montgomery Street Jersey City, NJ 07302")
 user_5 = User.create!(name: "Chloe", email: "chloe.j.price1705@gmail.com", phone: "222-222-2222", is_available_for_missions?: true, rescuer_trailer_capacity: 10, address: "100 14th Street Jersey City, NJ 07310")
+user_6 = User.create!(name: "Bob", email: "Bob@gmail.com", phone: "222-222-2223", is_available_for_missions?: true, rescuer_trailer_capacity: 10, address: "123 Fake Street")
 
 
 farm_1 = Farm.create!(name: "Horse Paradise", address: "727 Garden Street Hoboken, NJ 07030", number_of_animals: 10, special_needs?: false, special_needs_details: "None", user_id: user_1.id)

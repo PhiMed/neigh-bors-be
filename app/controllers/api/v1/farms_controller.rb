@@ -21,7 +21,6 @@ class Api::V1::FarmsController < ApplicationController
 
   def create
     farm = Farm.create(farm_params)
-
     if farm.save
       render json: FarmSerializer.new(Farm.find(farm.id)), status: 201
     else
