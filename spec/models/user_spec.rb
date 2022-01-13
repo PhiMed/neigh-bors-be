@@ -9,7 +9,6 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:email) }
     it { should validate_presence_of(:phone) }
-    it { should validate_presence_of(:rescuer_trailer_capacity) }
     it { should validate_presence_of(:address) }
   end
 end
