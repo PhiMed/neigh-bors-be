@@ -14,8 +14,10 @@ To access the dev environment for this app please follow these steps:
 * Clone your fork
 * From the command line, install gems and set up your DB:
   * `bundle`
+  * `bundle exec figaro install`
+  * `rails db:{drop,create,migrate,seed}`
 
-You can access the test suite (includes use of Capybara, FactoryBot, Faker, RSpec, Shouldamatchers, and Pry) via `bundle exec rspec`. You can run the development server with `rails s` to see the app in action.
+You can access the test suite (includes use of Capybara, FactoryBot, Faker, RSpec, Shouldamatchers, and Pry) via `bundle exec rspec`.
 
 ## Contributors
 This project was developed via Ruby on Rails by Philip Medlin, Chloe Price, Luis Arroyo, Lesley Sanders, and Didi Dodson at Turing School of Software and Design in 2022.
