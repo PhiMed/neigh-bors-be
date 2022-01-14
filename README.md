@@ -1,5 +1,7 @@
 # Neigh-bors
 
+![neighbors-cover](https://user-images.githubusercontent.com/87627363/149588621-c88d3986-1c43-40a9-bc51-10461514ba60.jpg)
+
 ## Project Description
 The Neigh-bors application is designed to connect farms with volunteer rescuers to evacuate horses during natural disaster events. The app includes both a backend repo (this repo) and a frontend repo (found here: [Neigh-bors Frontend Repo](https://github.com/chloell5/neigh-bors-fe). The backend of this app has been deployed to Heroku at [Neigh-bors](https://neigh-bors-be.herokuapp.com/api/v1/).
 
