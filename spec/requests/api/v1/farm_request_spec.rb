@@ -54,7 +54,7 @@ describe 'Farm API' do
 
     farm = (JSON.parse(response.body, symbolize_names: true))[:data]
 
-    expect(farm.first[:attributes][:user_id]).to eq(user_id)
+    expect(farm[:attributes][:user_id]).to eq(user_id)
   end
 
   it 'sends an error code if farm is not created' do
